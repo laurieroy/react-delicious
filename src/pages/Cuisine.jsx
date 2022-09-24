@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import styled from "styled-components";
 
@@ -8,9 +8,10 @@ function Cuisine() {
   const [cuisine, setCuisine] = useState([]);
 
   const getCuisine = async (name) => {
-		const api = `https://api.spoonacular.com/recipes/`
-		const key= process.env.REACT_APP_API_KEY
-    const data = await fetch(`${api}complexSearch?apiKey=${key}&cuisine=${name}`
+    const api = `https://api.spoonacular.com/recipes/`;
+    const key = process.env.REACT_APP_API_KEY;
+    const data = await fetch(
+      `${api}complexSearch?apiKey=${key}&cuisine=${name}`
     );
     const recipes = await data.json();
     setCuisine(recipes.results);
@@ -25,8 +26,10 @@ function Cuisine() {
       {cuisine.map((item) => {
         return (
           <Card key={item.id}>
-            <img src={item.image} alt={item.name} />
-            <h4>{item.title}</h4>
+            <Link to={"/recipe/" + item.id}>
+              <img src={item.image} alt={item.name} />
+              <h4>{item.title}</h4>
+            </Link>
           </Card>
         );
       })}
