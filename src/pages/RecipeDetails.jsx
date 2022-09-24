@@ -4,14 +4,14 @@ import styled from "styled-components";
 
 function RecipeDetails() {
   let params = useParams();
-  const baseUrl = "https://api.spoonacular.com/recipes/";
-  const key = process.env.REACT_APP_API_KEY;
   const [activeTab, setActiveTab] = useState("instuctions");
   const [details, setDetails] = useState({});
 
   const fetchDetails = async () => {
+    const baseUrl = "https://api.spoonacular.com/recipes/";
+    const key = process.env.REACT_APP_API_KEY;
     const data = await fetch(
-      `${baseUrl}/${params.name}/information?apiKey=${key}`
+      `${baseUrl}/${params.id}/information?apiKey=${key}`
     );
     const detailData = await data.json();
     setDetails(detailData);
@@ -20,7 +20,7 @@ function RecipeDetails() {
 
   useEffect(() => {
     fetchDetails();
-  }, [params.name, fetchDetails]);
+  });
 
   return (
     <DetailWrapper>
@@ -43,16 +43,16 @@ function RecipeDetails() {
         </Button>
 
         {activeTab === "instructions" && (
-          <>
+          <div>
             <h3 dangerouslySetInnerHTML={{ __html: details.summary }}></h3>
             <h3 dangerouslySetInnerHTML={{ __html: details.instructions }}></h3>
-          </>
+          </div>
         )}
         {activeTab === "ingredients" && (
           <ul>
-            {details.extendedIngredients.map((ingredient) => {
-              <li key={ingredient.id}>{ingredient.original}</li>;
-            })}
+            {details.extendedIngredients.map((ingredient) => (
+              <li key={ingredient.id}>{ingredient.original}</li>
+            ))}
           </ul>
         )}
       </Info>

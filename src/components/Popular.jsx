@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
-import "@splidejs/splide/dist/css/splide.min.css";
-import { Link } from "react-router-dom";
-
+import "@splidejs/react-splide/css";
 function Popular() {
   const [popular, setPopular] = useState([]);
 
@@ -17,7 +16,7 @@ function Popular() {
       setPopular(JSON.parse(check));
     } else {
       const api =
-        await fetch(`https://api.spoonacular.com/recipes/random?apiKey=process.env.REACT_APP_API_KEY&number=9
+        await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9
 		`);
       const data = await api.json();
 

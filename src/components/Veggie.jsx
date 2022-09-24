@@ -41,6 +41,7 @@ function Veggie() {
           }}
         >
           {veggie.map((recipe) => {
+            console.log(recipe)
             return (
               <SplideSlide key={recipe.id}>
                 <Card>

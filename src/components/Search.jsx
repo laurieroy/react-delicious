@@ -26,10 +26,9 @@ function Search() {
 }
 
 const FormStyle = styled.form`
-  margin: 0rem 20rem;
-
+  margin: 0rem 10rem;
   position: relative;
-  width: 100%;
+  width: 80%;
 
   input {
     border: none;
