@@ -1,4 +1,11 @@
-# Getting Started with Create React App
+# Delicious
+This is a sample recipe app.
+It uses the [spoonacular](https://spoonacular.com) Nutrition, Recipe, and Food API, which has a daily limit of 150.
+
+- carousel: react-splide 
+
+- css: styled-components and react-icons
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
