@@ -1,10 +1,16 @@
 # Delicious
-This is a sample recipe app.
+This is a sample recipe app built in React.
 It uses the [spoonacular](https://spoonacular.com) Nutrition, Recipe, and Food API, which has a daily limit of 150.
 
 - carousel: react-splide 
 
 - css: styled-components and react-icons
+
+- animation: framer-motion
+
+This project was built following a [tutorial](https://www.youtube.com/watch?v=xc4uOzlndAk). The animation and slider need work. I got out of it what I wanted, so I'm not sure I'll come back and fix it. Sep 2022
+
+
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

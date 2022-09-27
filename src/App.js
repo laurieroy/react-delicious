@@ -36,6 +36,6 @@ const Nav = styled.div`
   svg {
     font-size: 2rem;
   }
-`
+`;
 
 export default App;
